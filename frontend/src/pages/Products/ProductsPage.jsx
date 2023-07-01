@@ -5,30 +5,20 @@ import { MainNav } from "@/components/MainNav";
 import { UserNav } from "./components/UserNav";
 import { navigationLinks } from "../../config/navigationLinks";
 
-export const CustomersPage = () => {
-  const [customersData, setCustomersData] = useState([]);
+export const ProductsPage = () => {
+  const [productsData, setProductsData] = useState([]);
 
-  //sposób 1
-  // const fetchCustomersData = async () => {
-  //   const response = await fetch("http://127.0.0.1:8000/customers");
-  //   console.log(response);
-  //   const data = await response.json();
-  //   console.log(data);
-  //   setCustomersData(data);
-  // };
-
-  // sposób 2
-  const fetchCustomersData = () => {
-    fetch("http://127.0.0.1:8000/customers")
+  const fetchProductsData = () => {
+    fetch("http://127.0.0.1:8000/products")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setCustomersData(data);
+        setProductsData(data);
       });
   };
 
   useEffect(() => {
-    fetchCustomersData();
+    fetchProductsData();
   }, []);
 
   return (
@@ -43,27 +33,23 @@ export const CustomersPage = () => {
       </div>
       <div className="flex-1 space-y-4 p-8 pt-6">
         <div className="flex items-center justify-between space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">Customers</h2>
+          <h2 className="text-3xl font-bold tracking-tight">Products</h2>
         </div>
         <div className="hidden h-full flex-1 flex-col space-y-8 md:flex">
           <ul>
-            {customersData.map((item) => (
+            {productsData.map((item) => (
               <li key={item.id}>
                 <p>
                   <strong>Name: </strong>
                   {item.name}
                 </p>
                 <p>
-                  <strong>Surname: </strong>
-                  {item.surname}
+                  <strong>Price: </strong>
+                  {item.price}
                 </p>
                 <p>
-                  <strong>Email: </strong>
-                  {item.email}
-                </p>
-                <p>
-                  <strong>Phone number: </strong>
-                  {item.phone_number}
+                  <strong>Description: </strong>
+                  {item.description}
                 </p>
               </li>
             ))}

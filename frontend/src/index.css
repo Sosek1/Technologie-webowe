@@ -76,6 +76,7 @@
     @apply bg-background text-foreground;
   }
 }
+
 /* style */
 
 .addCustomerForm {
@@ -110,7 +111,7 @@
   color: white;
 }
 
-.customersList {
+ul {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -120,7 +121,7 @@
   list-style-type: none;
 }
 
-.customersList li {
+li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,6 +130,6 @@
   border-width: 1px;
 }
 
-.customersList li p {
+li p {
   font-size: 16px;
 }

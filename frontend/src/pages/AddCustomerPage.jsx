@@ -56,11 +56,6 @@ export const AddCustomerPage = () => {
 
     console.log(response);
 
-    if (!response.ok) {
-      setResMessage("Could not add customer");
-      throw new Error(response.message || "Could not add customer");
-    }
-
     setName("");
     setSurname("");
     setEmail("");
